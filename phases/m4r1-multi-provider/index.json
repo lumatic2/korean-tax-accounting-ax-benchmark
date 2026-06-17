@@ -1,0 +1,28 @@
+{
+  "project": "korean-tax-accounting-ax-benchmark",
+  "phase": "m4r1-multi-provider",
+  "mode": "product",
+  "description": "M4+ R1 — GPT(Codex CLI)·Gemini(Gemini CLI)를 CLI subprocess 어댑터로 추가(ADR 0010), 기존 101문항 closed/rag 재평가 → ≥3 프로바이더 교차변별 리포트 + judge-swap robustness 1건. 'Claude 단일 패밀리' 공격 해소.",
+  "decisions": {
+    "adapter_path": "CLI subprocess + 구독 인증(키 X) — codex exec / gemini -p, claude_cli.py 동형 (ADR 0010)",
+    "gpt_cli": "Codex CLI 0.139.0 — codex exec -m <model> -o <last_msg_file> -s read-only --ignore-user-config --ignore-rules --skip-git-repo-check -C <sandbox>",
+    "gemini_cli": "Gemini CLI 0.42.0 — gemini -p <prompt> -m <model> -o text --approval-mode plan (cwd=sandbox)",
+    "antigravity_note": "사용자 지목한 Antigravity CLI는 PATH 미존재 → Gemini CLI로 대체(ADR 0010)",
+    "isolation": "ADR 0008 패리티 — sandbox cwd + read-only/plan + MCP 차단(후보가 law-mcp 우회 금지)",
+    "sdk_adapters": "openai_client.py·google_client.py 잔존(미사용, 키 보유 시 선택 경로)",
+    "modes": ["closed_book", "rag"],
+    "providers_target": ["claude-opus-4-8", "gpt(codex)", "gemini"],
+    "judge_swap": "기본 judge=claude-sonnet-4-6 → robustness 1건은 비-Claude judge(gpt 또는 gemini)로 동일 답안 재채점, 순위 안정성 확인"
+  },
+  "open_questions": [
+    "두 CLI가 동시 headless 호출(max_workers>1)을 안전히 견디는지 — 세션파일 충돌·구독 동시성 한도. step0 HANDOFF로 CLI에 직접 확인 후 max_workers 확정(미확인 시 순차)."
+  ],
+  "billing_gates": ["step2 (provider smoke)", "step3 (101문항 라이브 평가 + judge-swap)"],
+  "steps": [
+    { "step": 0, "name": "adr-and-cli-capability-handoff", "status": "completed", "completed_at": "2026-06-13", "summary": "ADR 0010(0002 범위축소 재개방 — 멀티벤더는 CLI subprocess+구독인증으로, GPT→codex exec/Gemini→gemini -p, claude_cli 동형·ADR0008 격리패리티) + README 인덱스. phases 스캐폴드 step0~4. ★HANDOFF.md 작성 — Codex/Gemini CLI 각각에 붙여넣어 병렬안전성·구독동시성한도·격리(도구/MCP차단)·실모델ID·system주입방식을 직접 확인하는 자가완결 질의서. 로컬확인: codex-cli 0.139.0(exec -m -o -s read-only -C --ignore-user-config/rules)·gemini 0.42.0(-p -m -o text --approval-mode plan), Antigravity CLI 부재→Gemini CLI 대체. 키 현황: OPENAI_API_KEY 401·GEMINI/GOOGLE 미설정(그래서 구독CLI 경로 채택). step1 착수 게이트=HANDOFF 답(특히 max_workers 병렬안전성). 어댑터 코드·라이브호출 0(produce)." },
+    { "step": 1, "name": "cli-subprocess-adapters", "status": "completed", "completed_at": "2026-06-13", "summary": "CodexCLIClient(exec -m -o -s read-only -C --ignore-user-config/rules --skip-git-repo-check --ephemeral) + GeminiCLIClient(-p -m -o text --approval-mode plan --skip-trust --session-id UUID) 구현. registry.py 및 config/models.yaml (gpt-5.5, gemini-2.5-pro) 등록. subprocess mock 기반의 test_codex_cli.py/test_gemini_cli.py 및 test_registry.py 보완 완료. 93 테스트 전건 통과." },
+    { "step": 2, "name": "provider-smoke", "status": "completed", "completed_at": "2026-06-13", "summary": "scripts/smoke_model.py로 gpt-5.5(codex)·gemini-2.5-pro(gemini) CLI 라이브 호출 정상 — 2+2=4, latency(Codex 6.69s/Gemini 8.99s, 재확인 Gemini 10.48s). 어댑터 동작 검증됨: sandbox cwd 실행·출력 파싱(배너 노이즈는 stderr로 빠지고 stdout만 답으로 반환)·returncode 0. ★격리(도구/web_search/MCP 차단)는 ★미검증★ — 2+2는 도구를 부르지 않아 격리가 실제로 테스트된 적 없음(false-positive 정정). 라이브 관찰: raw `gemini -p`를 레포 cwd에서 돌리면 IDE/MCP(127.0.0.1:58278) 연결 시도 → gemini_cli.py는 `--approval-mode plan`만 있고 `--allowed-mcp-server-names \"\"` 및 내장 google_web_search 비활성이 빠져 격리 불완전(HANDOFF 자기결론 line63 미반영). step3 라이브 전 격리 강화+웹조회 유도 문항으로 실측 필요(P0)." },
+    { "step": 3, "name": "live-eval-101-and-judge-swap", "status": "completed", "completed_at": "2026-06-14", "summary": "GPT-5.5(codex) 101×closed/rag 풀런 202/202 완주. Claude는 M3 run 119/202(세션한도). Gemini-2.5-flash 182/202(쿼터·격리미검증→제외 ADR0011). judge-swap: 동일답안 GPT judge 재채점(regrade_results.py). raw outputs/m4r1/. ★검증서 초안 +24.8 헤드라인이 N불균형 아티팩트로 판명." },
+    { "step": 4, "name": "cross-provider-report-and-docs", "status": "completed", "completed_at": "2026-06-14", "summary": "ADR 0011(Gemini 제외, Claude×GPT 2벤더) + 수정 finding docs/findings/m4r1-multi-provider.md(공정페어119: GPT 89.1/93.5 vs Claude 86.3/86.1, judge민감도 GPT+4.3·Claude−0.2, 초안+24.8 폐기, risk/case judge불일치→R4). config gemini 제외표기. ROADMAP R1 정정. 외부 antigravity 리포트→레포 정식화." }
+  ]
+}

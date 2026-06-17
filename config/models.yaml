@@ -1,0 +1,49 @@
+# 모델 버전핀 — provider별로 model_id 해석이 다르다(claude/codex/gemini=CLI 인자, openai/google=SDK).
+# 활성 평가 경로는 전부 CLI subprocess + 구독 인증(키 불필요, ADR 0002·0010).
+models:
+  # ── 활성 평가 모델 (M4+ R1 교차변별) — CLI subprocess, 구독 인증 ──
+  claude-opus-4-8:
+    provider: claude_cli
+    model_id: claude-opus-4-8
+    temperature: 0.0
+    prompt_version: v1
+  claude-sonnet-4-6:
+    provider: claude_cli
+    model_id: claude-sonnet-4-6
+    temperature: 0.0
+    prompt_version: v1
+  claude-haiku-4-5:
+    provider: claude_cli
+    model_id: claude-haiku-4-5
+    temperature: 0.0
+    prompt_version: v1
+  gpt-5.5:            # GPT — Codex CLI (`codex exec`). smoke 검증됨.
+    provider: codex_cli
+    model_id: gpt-5.5
+    temperature: 0.0
+    prompt_version: v1
+  # ⚠ Gemini 는 R1 평가셋에서 제외(ADR 0011) — 어댑터·엔트리는 잔존(미사용), 재편입 시 재활성.
+  gemini-2.5-pro:     # Gemini — Gemini CLI (`gemini -p`). smoke 검증됨. (R1 제외)
+    provider: gemini_cli
+    model_id: gemini-2.5-pro
+    temperature: 0.0
+    prompt_version: v1
+  gemini-2.5-flash:   # Gemini Flash — fallback when pro is rate-limited.
+    provider: gemini_cli
+    model_id: gemini-2.5-flash
+    temperature: 0.0
+    prompt_version: v1
+
+  # ── 선택·미사용: SDK/API 키 경로 (ADR 0010 — 어댑터 잔존, 평가 기본 경로 아님) ──
+  # 키 보유 시에만 사용(uv sync --extra providers + OPENAI_API_KEY/GEMINI_API_KEY).
+  # model_id 는 placeholder — 실제 사용 시 유효 ID 로 교체. 현재는 registry 분기 단위테스트용.
+  gpt-5.4:
+    provider: openai
+    model_id: gpt-5.4
+    temperature: 0.0
+    prompt_version: v1
+  gemini-3-pro:
+    provider: google
+    model_id: gemini-3-pro
+    temperature: 0.0
+    prompt_version: v1

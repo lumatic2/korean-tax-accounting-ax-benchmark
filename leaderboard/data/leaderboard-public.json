@@ -1,0 +1,950 @@
+{
+  "errors_holdout_agg": {
+    "by_type": {
+      "calc_error": 6,
+      "citation_error": 14,
+      "hallucination": 94
+    }
+  },
+  "errors_public": [
+    {
+      "detail": "fake_source",
+      "id": "ktb-vat-0001",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "ignore_time_basis, fake_source",
+      "id": "ktb-vat-0002",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "fake_source, assert_without_source",
+      "id": "ktb-vat-0002",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "fake_source, assert_without_source",
+      "id": "ktb-corp-tax-0001",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "fake_source, assert_without_source",
+      "id": "ktb-corp-tax-0001",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "fake_source",
+      "id": "ktb-income-tax-0002",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제27조, assert_without_source, fake_source",
+      "id": "ktb-basic-tax-law-0001",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-basic-tax-law-0001",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "citation_error"
+    },
+    {
+      "detail": "unverified_citation:제119조, unverified_citation:제47조, fake_source, assert_without_source",
+      "id": "ktb-basic-tax-law-0001",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "fake_source",
+      "id": "ktb-mixed-0001",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "assert_without_source, fake_source",
+      "id": "ktb-mixed-0001",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "threshold_swap, fake_source, assert_without_source",
+      "id": "ktb-vat-0003",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "fake_source, assert_without_source",
+      "id": "ktb-vat-0005",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "fake_source",
+      "id": "ktb-vat-0008",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "fake_source, ignore_progressive_bracket, arithmetic_unit_error",
+      "id": "ktb-corp-tax-0003",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "fake_source",
+      "id": "ktb-corp-tax-0006",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-corp-tax-0006",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "citation_error"
+    },
+    {
+      "detail": "unverified_citation:제74조, fake_source",
+      "id": "ktb-income-tax-0003",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제127조",
+      "id": "ktb-income-tax-0003",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제22조, fake_source, assert_without_source",
+      "id": "ktb-basic-tax-law-0002",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-basic-tax-law-0002",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "citation_error"
+    },
+    {
+      "detail": "unverified_citation:제26조, wrong_periods, fake_source",
+      "id": "ktb-basic-tax-law-0002",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "fake_source",
+      "id": "ktb-accounting-0006",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "fake_source",
+      "id": "ktb-accounting-0009",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "fake_source, assert_without_source",
+      "id": "ktb-accounting-0011",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제38조, unverified_citation:제40조, unverified_citation:제41조, unverified_citation:제44조, unverified_citation:제45조, unverified_citation:제46조, unverified_citation:제49조, fake_source, assert_without_source",
+      "id": "ktb-vat-0011",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제38조, unverified_citation:제71조, unverified_citation:제81조",
+      "id": "ktb-vat-0011",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제12조, fake_source",
+      "id": "ktb-vat-0013",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-vat-0013",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "citation_error"
+    },
+    {
+      "detail": "unverified_citation:제13조, unverified_citation:제25조, unverified_citation:제26조, wrong_legal_basis",
+      "id": "ktb-corp-tax-0008",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-corp-tax-0008",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "citation_error"
+    },
+    {
+      "detail": "unverified_citation:제15조, unverified_citation:제25조, unverified_citation:제26조, unverified_citation:제33조, fake_source, fake_source",
+      "id": "ktb-corp-tax-0008",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-corp-tax-0008",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "citation_error"
+    },
+    {
+      "detail": "unverified_citation:제34조, unverified_citation:제34조의4, fake_source",
+      "id": "ktb-corp-tax-0010",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-corp-tax-0010",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "citation_error"
+    },
+    {
+      "detail": "fake_source, assert_without_source",
+      "id": "ktb-income-tax-0007",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-income-tax-0007",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "citation_error"
+    },
+    {
+      "detail": "unverified_citation:제119조, unverified_citation:제1조, assert_without_source",
+      "id": "ktb-income-tax-0007",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제126조, unverified_citation:제127조, unverified_citation:제14조, unverified_citation:제15조, unverified_citation:제16조, unverified_citation:제16조의3, fake_source, fake_source",
+      "id": "ktb-income-tax-0009",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-income-tax-0009",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "citation_error"
+    },
+    {
+      "detail": "unverified_citation:제119조",
+      "id": "ktb-income-tax-0009",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제26조, unverified_citation:제27조, unverified_citation:제48조, fake_source, wrong_article_confusion",
+      "id": "ktb-basic-tax-law-0006",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-basic-tax-law-0006",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "citation_error"
+    },
+    {
+      "detail": "unverified_citation:제26조, unverified_citation:제27조, ignore_time_basis",
+      "id": "ktb-basic-tax-law-0006",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:1109-B4.1.7",
+      "id": "ktb-accounting-0015",
+      "mode": "closed_book",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:1109-4.1.3, unverified_citation:1109-4.4.3, unverified_citation:1109-5.1.1, unverified_citation:1109-5.5",
+      "id": "ktb-accounting-0015",
+      "mode": "rag",
+      "model": "claude-haiku-4-5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제47조, unverified_citation:제47조의3, unverified_citation:제47조의4",
+      "id": "ktb-basic-tax-law-0001",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제47조, unverified_citation:제47조의4",
+      "id": "ktb-basic-tax-law-0001",
+      "mode": "rag",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제106조, unverified_citation:제19조, unverified_citation:제49조, unverified_citation:제52조, unverified_citation:제67조",
+      "id": "ktb-corp-tax-0006",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제19조",
+      "id": "ktb-corp-tax-0006",
+      "mode": "rag",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제14조, unverified_citation:제87조",
+      "id": "ktb-income-tax-0003",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제47조",
+      "id": "ktb-income-tax-0003",
+      "mode": "rag",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제12조의3, unverified_citation:제3조",
+      "id": "ktb-basic-tax-law-0002",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제12조의3, unverified_citation:제26조",
+      "id": "ktb-basic-tax-law-0002",
+      "mode": "rag",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제38조, unverified_citation:제40조",
+      "id": "ktb-vat-0011",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제38조",
+      "id": "ktb-vat-0011",
+      "mode": "rag",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제30조, unverified_citation:제30조의10",
+      "id": "ktb-vat-0013",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제30조",
+      "id": "ktb-vat-0013",
+      "mode": "rag",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제19조의2, unverified_citation:제61조",
+      "id": "ktb-corp-tax-0008",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제19조의2, unverified_citation:제61조",
+      "id": "ktb-corp-tax-0008",
+      "mode": "rag",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제13조",
+      "id": "ktb-corp-tax-0010",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제119조, unverified_citation:제121조",
+      "id": "ktb-income-tax-0007",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제119조, unverified_citation:제121조, unverified_citation:제156조, unverified_citation:제1조",
+      "id": "ktb-income-tax-0007",
+      "mode": "rag",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제119조, unverified_citation:제14조, unverified_citation:제16조, unverified_citation:제17조, unverified_citation:제19조, unverified_citation:제1조의2, unverified_citation:제20조, unverified_citation:제20조의3, unverified_citation:제21조, unverified_citation:제22조, unverified_citation:제55조, unverified_citation:제70조, unverified_citation:제94조",
+      "id": "ktb-income-tax-0009",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제119조",
+      "id": "ktb-income-tax-0009",
+      "mode": "rag",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제12조의3, unverified_citation:제27조",
+      "id": "ktb-basic-tax-law-0006",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제12조의3, unverified_citation:제26조, unverified_citation:제3조",
+      "id": "ktb-basic-tax-law-0006",
+      "mode": "rag",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:1109-4.1.2A, unverified_citation:1109-4.1.3, unverified_citation:1109-4.1.5, unverified_citation:1109-B4.1.1",
+      "id": "ktb-accounting-0015",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:1109-4.1.2A, unverified_citation:1109-4.1.5, unverified_citation:1109-5.1.1",
+      "id": "ktb-accounting-0015",
+      "mode": "rag",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제116조, unverified_citation:제158조, unverified_citation:제25조, unverified_citation:제32조, unverified_citation:제38조, unverified_citation:제39조, unverified_citation:제46조, unverified_citation:제60조, unverified_citation:제75조의5",
+      "id": "ktb-mixed-0008",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-mixed-0008",
+      "mode": "closed_book",
+      "model": "claude-opus-4-8",
+      "type": "citation_error"
+    },
+    {
+      "detail": "unverified_citation:제116조, unverified_citation:제158조, unverified_citation:제25조, unverified_citation:제32조, unverified_citation:제39조, unverified_citation:제46조, unverified_citation:제75조의5",
+      "id": "ktb-mixed-0008",
+      "mode": "rag",
+      "model": "claude-opus-4-8",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-mixed-0008",
+      "mode": "rag",
+      "model": "claude-opus-4-8",
+      "type": "citation_error"
+    },
+    {
+      "detail": "unverified_citation:제47조, unverified_citation:제47조의4",
+      "id": "ktb-basic-tax-law-0001",
+      "mode": "closed_book",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제28조, unverified_citation:제47조, fake_source",
+      "id": "ktb-basic-tax-law-0001",
+      "mode": "rag",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제19조, unverified_citation:제49조",
+      "id": "ktb-corp-tax-0006",
+      "mode": "closed_book",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제106조, unverified_citation:제19조",
+      "id": "ktb-corp-tax-0006",
+      "mode": "rag",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제47조",
+      "id": "ktb-income-tax-0003",
+      "mode": "rag",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제26조",
+      "id": "ktb-basic-tax-law-0002",
+      "mode": "rag",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제38조, unverified_citation:제80조",
+      "id": "ktb-vat-0011",
+      "mode": "closed_book",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제38조",
+      "id": "ktb-vat-0011",
+      "mode": "rag",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제11조, unverified_citation:제24조, unverified_citation:제30조, unverified_citation:제59조, unverified_citation:제64조, fake_source",
+      "id": "ktb-vat-0013",
+      "mode": "closed_book",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-vat-0013",
+      "mode": "closed_book",
+      "model": "claude-sonnet-4-6",
+      "type": "citation_error"
+    },
+    {
+      "detail": "unverified_citation:제30조",
+      "id": "ktb-vat-0013",
+      "mode": "rag",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제53조, unverified_citation:제60조, unverified_citation:제61조",
+      "id": "ktb-corp-tax-0008",
+      "mode": "closed_book",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제19조의2, fake_source",
+      "id": "ktb-corp-tax-0008",
+      "mode": "rag",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제13조",
+      "id": "ktb-corp-tax-0010",
+      "mode": "closed_book",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제119조, unverified_citation:제1조, unverified_citation:제28조, unverified_citation:제57조, fake_source",
+      "id": "ktb-income-tax-0007",
+      "mode": "closed_book",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제119조, unverified_citation:제156조",
+      "id": "ktb-income-tax-0007",
+      "mode": "rag",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제105조, unverified_citation:제110조, unverified_citation:제119조, unverified_citation:제121조, unverified_citation:제14조, unverified_citation:제16조, unverified_citation:제17조, unverified_citation:제19조, unverified_citation:제20조, unverified_citation:제20조의3, unverified_citation:제21조, unverified_citation:제22조, unverified_citation:제28조, unverified_citation:제3조, unverified_citation:제55조, unverified_citation:제94조",
+      "id": "ktb-income-tax-0009",
+      "mode": "closed_book",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제119조, unverified_citation:제14조",
+      "id": "ktb-income-tax-0009",
+      "mode": "rag",
+      "model": "claude-sonnet-4-6",
+      "type": "hallucination"
+    }
+  ],
+  "meta": {
+    "models": [
+      "claude-haiku-4-5",
+      "claude-opus-4-8",
+      "claude-sonnet-4-6"
+    ],
+    "n_holdout_records": 348,
+    "n_public_records": 258,
+    "source_files": [
+      "claude-haiku-4-5_20260611T124225Z.jsonl",
+      "claude-opus-4-8_20260611T055437Z.jsonl",
+      "claude-sonnet-4-6_20260611T124222Z.jsonl"
+    ]
+  },
+  "public_sample": {
+    "discrimination": {
+      "flag": "ok",
+      "range": [
+        54.78,
+        91.43
+      ],
+      "spread": 36.65
+    },
+    "report": {
+      "by_model": {
+        "claude-haiku-4-5": {
+          "avg_total": 54.78,
+          "by_dimension": {
+            "calculation_or_process": 20.4,
+            "clarity": 4.36,
+            "conclusion_accuracy": 16.49,
+            "deliverable_quality": 12.5,
+            "fact_handling": 7.71,
+            "legal_basis": 13.56,
+            "practicality": 10.67,
+            "risk_handling": 8.78,
+            "tool_process": 15.5
+          },
+          "by_domain": {
+            "accounting": 80.88,
+            "basic_tax_law": 19.42,
+            "corp_tax": 33.0,
+            "income_tax": 58.15,
+            "mixed": 42.5,
+            "vat": 54.53
+          },
+          "by_mode": {
+            "closed_book": 45.36,
+            "rag": 64.5
+          },
+          "grades": {
+            "A": 13,
+            "B": 11,
+            "C": 6,
+            "D": 31
+          },
+          "n": 61
+        },
+        "claude-opus-4-8": {
+          "avg_total": 91.43,
+          "by_dimension": {
+            "calculation_or_process": 23.48,
+            "clarity": 5.05,
+            "conclusion_accuracy": 20.9,
+            "deliverable_quality": 14.0,
+            "fact_handling": 10.62,
+            "legal_basis": 21.09,
+            "practicality": 14.51,
+            "risk_handling": 12.27,
+            "tool_process": 16.5
+          },
+          "by_domain": {
+            "accounting": 96.19,
+            "basic_tax_law": 91.15,
+            "corp_tax": 95.36,
+            "income_tax": 93.96,
+            "mixed": 75.88,
+            "vat": 88.39
+          },
+          "by_mode": {
+            "closed_book": 91.34,
+            "rag": 91.51
+          },
+          "grades": {
+            "A": 63,
+            "B": 14,
+            "C": 6,
+            "D": 3
+          },
+          "n": 86
+        },
+        "claude-sonnet-4-6": {
+          "avg_total": 87.4,
+          "by_dimension": {
+            "calculation_or_process": 24.92,
+            "clarity": 5.07,
+            "conclusion_accuracy": 19.21,
+            "deliverable_quality": 14.0,
+            "fact_handling": 10.4,
+            "legal_basis": 22.12,
+            "practicality": 14.29,
+            "risk_handling": 12.16,
+            "tool_process": 16.5
+          },
+          "by_domain": {
+            "accounting": 93.43,
+            "basic_tax_law": 84.42,
+            "corp_tax": 93.0,
+            "income_tax": 86.79,
+            "mixed": 86.0,
+            "vat": 80.38
+          },
+          "by_mode": {
+            "closed_book": 85.24,
+            "rag": 89.56
+          },
+          "grades": {
+            "A": 40,
+            "B": 10,
+            "C": 4,
+            "D": 6
+          },
+          "n": 60
+        }
+      },
+      "models": [
+        "claude-haiku-4-5",
+        "claude-opus-4-8",
+        "claude-sonnet-4-6"
+      ],
+      "n_errors": 51,
+      "n_records": 258
+    }
+  },
+  "ranking": {
+    "basis": "holdout",
+    "discrimination": {
+      "flag": "ok",
+      "range": [
+        46.26,
+        92.22
+      ],
+      "spread": 45.96
+    },
+    "report": {
+      "by_model": {
+        "claude-haiku-4-5": {
+          "avg_total": 46.26,
+          "by_dimension": {
+            "calculation_or_process": 9.32,
+            "clarity": 4.08,
+            "conclusion_accuracy": 13.31,
+            "deliverable_quality": 8.57,
+            "fact_handling": 7.92,
+            "legal_basis": 11.56,
+            "practicality": 10.78,
+            "risk_handling": 7.86,
+            "tool_process": 7.33
+          },
+          "by_domain": {
+            "accounting": 80.95,
+            "basic_tax_law": 32.6,
+            "corp_tax": 45.78,
+            "income_tax": 47.0,
+            "mixed": 23.14,
+            "vat": 34.59
+          },
+          "by_mode": {
+            "closed_book": 31.92,
+            "rag": 60.95
+          },
+          "grades": {
+            "A": 15,
+            "B": 13,
+            "C": 7,
+            "D": 50
+          },
+          "n": 85
+        },
+        "claude-opus-4-8": {
+          "avg_total": 92.22,
+          "by_dimension": {
+            "calculation_or_process": 19.24,
+            "clarity": 4.89,
+            "conclusion_accuracy": 20.61,
+            "deliverable_quality": 14.24,
+            "fact_handling": 10.6,
+            "legal_basis": 21.3,
+            "practicality": 14.38,
+            "risk_handling": 11.77,
+            "tool_process": 16.86
+          },
+          "by_domain": {
+            "accounting": 90.12,
+            "basic_tax_law": 97.36,
+            "corp_tax": 91.3,
+            "income_tax": 93.39,
+            "mixed": 93.27,
+            "vat": 90.54
+          },
+          "by_mode": {
+            "closed_book": 93.18,
+            "rag": 91.24
+          },
+          "grades": {
+            "A": 92,
+            "B": 16,
+            "C": 3,
+            "D": 4
+          },
+          "n": 115
+        },
+        "claude-sonnet-4-6": {
+          "avg_total": 85.25,
+          "by_dimension": {
+            "calculation_or_process": 14.11,
+            "clarity": 4.67,
+            "conclusion_accuracy": 19.08,
+            "deliverable_quality": 13.0,
+            "fact_handling": 10.14,
+            "legal_basis": 22.36,
+            "practicality": 13.98,
+            "risk_handling": 11.83,
+            "tool_process": 11.5
+          },
+          "by_domain": {
+            "accounting": 92.6,
+            "basic_tax_law": 75.9,
+            "corp_tax": 83.87,
+            "income_tax": 88.75,
+            "vat": 86.06
+          },
+          "by_mode": {
+            "closed_book": 84.24,
+            "rag": 86.23
+          },
+          "grades": {
+            "A": 40,
+            "B": 11,
+            "C": 2,
+            "D": 6
+          },
+          "n": 59
+        }
+      },
+      "models": [
+        "claude-haiku-4-5",
+        "claude-opus-4-8",
+        "claude-sonnet-4-6"
+      ],
+      "n_errors": 89,
+      "n_records": 348
+    }
+  },
+  "schema_version": "leaderboard-public-v0.1",
+  "version_pins": {
+    "claude-haiku-4-5": {
+      "accessed_at": [
+        "2026-06-11"
+      ],
+      "judge_model": [
+        "claude-sonnet-4-6"
+      ],
+      "modes": [
+        "closed_book",
+        "rag"
+      ],
+      "prompt_version": [
+        "v1"
+      ]
+    },
+    "claude-opus-4-8": {
+      "accessed_at": [
+        "2026-06-11"
+      ],
+      "judge_model": [
+        "claude-sonnet-4-6"
+      ],
+      "modes": [
+        "closed_book",
+        "rag"
+      ],
+      "prompt_version": [
+        "v1"
+      ]
+    },
+    "claude-sonnet-4-6": {
+      "accessed_at": [
+        "2026-06-11"
+      ],
+      "judge_model": [
+        "claude-sonnet-4-6"
+      ],
+      "modes": [
+        "closed_book",
+        "rag"
+      ],
+      "prompt_version": [
+        "v1"
+      ]
+    }
+  }
+}

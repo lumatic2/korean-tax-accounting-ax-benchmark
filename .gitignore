@@ -1,0 +1,20 @@
+# data/ 는 이 레포의 핵심 산출물(벤치마크 문항)이라 트래킹한다.
+# 비공개 검증셋만 분리 보관:
+data/private/
+outputs/
+CLAUDE.local.md
+
+# Python
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+
+# 임시 (repo-layout 관례)
+tmp/
+archive/
+dist/
+
+# Playwright/스크린샷 산출물
+.playwright-mcp/
+/leaderboard-qhd-*.png

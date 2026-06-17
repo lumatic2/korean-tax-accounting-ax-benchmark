@@ -1,0 +1,5 @@
+K-TaxBench Public Sample — CC BY-NC 4.0 (Attribution-NonCommercial)
+
+이 공개 샘플셋은 연구·재현·디버그 용도로 제공된다. 기출문제를 시드로 표현을 전면
+재작성했으며(data-strategy §2.4), 상업적 재배포는 별도 협의가 필요하다.
+순위 산정은 비공개 holdout 으로 매긴다(공개셋은 연습·재현 데모용).

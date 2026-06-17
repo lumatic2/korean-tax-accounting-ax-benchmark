@@ -1,0 +1,17 @@
+{
+  "name": "ktaxbench-leaderboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "K-TaxBench public leaderboard — static viewer (read-only + policy badges, ADR 0009)",
+  "scripts": {
+    "data": "python ../scripts/build_leaderboard_data.py \"../outputs/m3-rerun-101-20260611/*.jsonl\" --data ../data/private/sample-questions-full-v0.1.jsonl --out data/leaderboard-public.json",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

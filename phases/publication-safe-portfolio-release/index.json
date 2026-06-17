@@ -1,0 +1,14 @@
+{
+  "project": "K-TaxBench",
+  "phase": "publication-safe-portfolio-release",
+  "mode": "product",
+  "steps": [
+    {
+      "step": 0,
+      "name": "public-data-and-readme-boundary",
+      "status": "completed",
+      "summary": "Tracked data/sample-questions-v0.1.jsonl now contains 43 public_sample rows and 0 holdout rows; full 173-row dataset preserved locally under ignored data/private/sample-questions-full-v0.1.jsonl. README and data README rewritten for portfolio/publication boundary. Tests updated to avoid holdout-only fixture dependencies. Verification: validate_questions PASS, pytest 129 passed, package_release gate PASS with 34 publishable rows, tracked private boundary PASS, strict secret value scan PASS.",
+      "completed_at": "2026-06-18T02:18:37+09:00"
+    }
+  ]
+}

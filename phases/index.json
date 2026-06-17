@@ -1,0 +1,12 @@
+{
+  "phases": [
+    { "dir": "income-100-m3-rerun", "status": "completed" },
+    { "dir": "mvp-eval-harness", "status": "pending" },
+    { "dir": "agent-eval-isolation", "status": "completed" },
+    { "dir": "m4-public-track", "status": "in_progress" },
+    { "dir": "m4r1-multi-provider", "status": "in_progress" },
+    { "dir": "m5-public-release", "status": "completed" },
+    { "dir": "m6-measurement-reliability", "status": "completed" },
+    { "dir": "publication-safe-portfolio-release", "status": "completed" }
+  ]
+}
