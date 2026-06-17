@@ -1,7 +1,7 @@
 # 발견 — RAG가 환각을 줄이는가 (closed_book vs rag, M3)
 
 > 실험일 2026-06-09 · 데이터 `outputs/rag_compare/claude-haiku-4-5_20260609T042729Z.jsonl`(gitignored)
-> 핵심 가설(question-blueprint·ROADMAP M3 후보 2): **법령 원문을 주입하면 약한 모델의 환각(가짜 조문·인용)이 줄어드는가?**
+> 핵심 가설: **법령 원문을 주입하면 약한 모델의 환각(가짜 조문·인용)이 줄어드는가?**
 
 ## 방법
 

@@ -1,6 +1,6 @@
 # PRD
 
-> 상위 비전·로드맵은 [ROADMAP.md](../ROADMAP.md), 설계 원리는 [benchmark-design-principles.md](benchmark-design-principles.md). 이 문서는 실행기(M2~M3) MVP 범위만 규정.
+> 상위 비전은 [benchmark-design-principles.md](benchmark-design-principles.md), 공개 범위는 [m4-public-sample-scope.md](m4-public-sample-scope.md)를 따른다. 이 문서는 실행기(M2~M3) MVP 범위만 규정.
 
 ## 목표
 한국 회계·세무 AI가 "그럴듯하게 말하는가"가 아니라 **"실무 검증을 통과했는가"**를, 같은 조건에서 재현 가능하게 측정하는 평가 실행기.

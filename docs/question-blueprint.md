@@ -167,4 +167,4 @@ domain: vat 16 · corp_tax 13 · income_tax 10 · accounting 12 · basic_tax_law
 
 ## 7. 확충 절차
 
-문항 제작 절차는 [playbooks/question-authoring.md](../playbooks/question-authoring.md), **검증 우선 원칙**(시행령 호 단위까지 DRF로 선확정, 검수로 punt 금지)을 따른다. 신규 문항은 본 청사진의 §1 비중·§2 계산기준·§3 두 속성·**§6 커버리지 매트릭스**를 만족해야 한다.
+문항 제작 절차는 **검증 우선 원칙**(시행령 호 단위까지 DRF로 선확정, 검수로 punt 금지)을 따른다. 신규 문항은 본 청사진의 §1 비중·§2 계산기준·§3 두 속성·**§6 커버리지 매트릭스**를 만족해야 한다.

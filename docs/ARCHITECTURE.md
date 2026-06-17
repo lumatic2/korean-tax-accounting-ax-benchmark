@@ -23,10 +23,10 @@ src/ktaxbench/
   runlog.py        # runs/results JSONL 영속화
 scripts/           # validate_questions.py / run_eval.py / make_report.py / hash_question.py
 tests/             # pytest (code-grader 결정론 등)
-data/              # sample-questions-*.jsonl (추적), data/private/ (비추적)
+data/              # public sample JSONL (tracked)
 config/models.yaml # 모델 버전핀
 outputs/           # runs·results (gitignored)
-phases/            # harness step 파일 (execute.py)
+docs/adr/          # architecture decisions
 ```
 
 ## 패턴

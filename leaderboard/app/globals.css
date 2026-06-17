@@ -51,6 +51,21 @@ section .note { color: var(--muted); font-size: 13px; margin: -6px 0 12px; }
   overflow-x: auto;
   border-radius: 10px;
   -webkit-overflow-scrolling: touch;
+  outline: none;
+  background:
+    linear-gradient(90deg, var(--bg) 0, transparent 18px),
+    linear-gradient(270deg, var(--bg) 0, transparent 18px),
+    linear-gradient(90deg, rgba(22, 36, 58, 0.12), transparent 22px),
+    linear-gradient(270deg, rgba(22, 36, 58, 0.12), transparent 22px);
+  background-color: var(--card);
+  background-position: left center, right center, left center, right center;
+  background-repeat: no-repeat;
+  background-size: 18px 100%, 18px 100%, 12px 100%, 12px 100%;
+  background-attachment: local, local, scroll, scroll;
+}
+
+.table-wrap:focus-visible {
+  box-shadow: 0 0 0 3px rgba(29, 111, 224, 0.22);
 }
 
 table { width: 100%; min-width: 680px; border-collapse: collapse; background: var(--card); border-radius: 10px; overflow: hidden; font-size: 14px; }

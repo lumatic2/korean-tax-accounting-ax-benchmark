@@ -1,6 +1,6 @@
 # K-TaxBench 기술 리포트 — 골격 (M4)
 
-> M4 공개 트랙 step2 산출물. arXiv/블로그용 기술 리포트의 **목차 + 근거 슬롯**. 본문 집필 아님. 규칙: 모든 수치·결론은 레포 내 finding/DOMAIN/ADR을 `근거:`로 인용([CLAUDE.md](../CLAUDE.md) Judge 규약). 근거 없는 칸은 `TODO(리서치):` — 추정 본문 금지.
+> M4 공개 트랙 산출물. arXiv/블로그용 기술 리포트의 **목차 + 근거 슬롯**. 본문 집필 아님. 규칙: 모든 수치·결론은 레포 내 finding/DOMAIN/ADR을 `근거:`로 인용. 근거 없는 칸은 `TODO(리서치):` — 추정 본문 금지.
 
 ## 0. 메타
 - 제목(안): *K-TaxBench: 한국 회계·세무 AI의 실무 신뢰도 평가 인프라*
@@ -26,7 +26,7 @@
 ## 4. 방법론
 - 3모드: closed_book / rag / agent. 근거: [ARCHITECTURE.md](ARCHITECTURE.md), [adr/0005](adr/0005-agent-react-loop.md).
 - 다차원 채점: 코드 채점(MC·계산·근거 locator, 결정론) + LLM-judge(7차원 루브릭) + statement-level 부분점·pass^k. 근거: [rubric-v0.1.md](rubric-v0.1.md), [adr/0003](adr/0003-calculation-as-rule-proxy.md), [adr/0007](adr/0007-citation-grader-kifrs-paragraph.md).
-- self-eval 제거(judge=비self 모델) + 후보·judge 환경 격리. 근거: [adr/0008](adr/0008-agent-eval-isolation.md), [CLAUDE.md](../CLAUDE.md) Judge 규약.
+- self-eval 제거(judge=비self 모델) + 후보·judge 환경 격리. 근거: [adr/0008](adr/0008-agent-eval-isolation.md).
 - agent 도구강제 모드(권위게이트+근거매칭). 근거: [adr/0006](adr/0006-agent-forced-mode.md).
 - 버전핀(model id·data hash·scaffold·mode) 재현성. 근거: [ARCHITECTURE.md](ARCHITECTURE.md) §상태관리.
 
@@ -34,7 +34,7 @@
 - ① 3모델 변별 **spread 40.2**(opus 92.0·sonnet 86.3·haiku 51.7, 공통 118쌍; 직전 30.1→확대). 근거: [findings/m3-rerun-101.md](findings/m3-rerun-101.md) §①.
 - ② RAG vs closed_book **+8.6**(72.4→81.0, 환각감소 재현). 근거: [findings/m3-rerun-101.md](findings/m3-rerun-101.md) §②, [findings/m3-rag-vs-closed-book.md](findings/m3-rag-vs-closed-book.md).
 - ③ 도구강제 ≠ 검색가능 사실(유명룰은 3모델 도구 0회) — 가설 반증. 근거: [findings/agent-tool-forcing.md](findings/agent-tool-forcing.md).
-- ④ calc 룰프록시 검출 사례(양도 자산구분 오류 교정·기부금 final↔explanation 모순 포착) — self-eval 천장 넘는 외부검증 가치. 근거: [ROADMAP.md](../ROADMAP.md) 세션5·6 이력.
+- ④ calc 룰프록시 검출 사례(양도 자산구분 오류 교정·기부금 final↔explanation 모순 포착) — self-eval 천장 넘는 외부검증 가치.
 - ⑤ 신규 income 변별(opus95.7 vs haiku73.8, case·risk서 haiku D붕괴, 0점 데이터결함 0). 근거: [findings/m3-rerun-101.md](findings/m3-rerun-101.md) §③.
 
 ## 6. 외부 벤치 비교
@@ -54,9 +54,9 @@
 > 주의(한계): 점수 직접 비교가 아니라 **설계·평가축 비교**(KBL/KMMLU 수치는 논문 발표값). "처음"류 단정은 "조사 범위 내" 한정. 본문 집필 시 finding §4 한계 반영.
 
 ## 7. 한계 · 후속
-- 본인 단독 검수 단계 — 외부 전문가 검수 도입 예정. 근거: [phases/m4-public-track/step4.md](../phases/m4-public-track/step4.md), [ROADMAP.md](../ROADMAP.md) M4.
+- 본인 단독 검수 단계 — 외부 전문가 검수 도입 예정.
 - holdout 운영·로테이션·표본설계는 진행형. judge 비결정성은 재현분산 로깅+스팟체크로 보정.
-- 멀티프로바이더(GPT/Gemini) 교차변별은 1차 범위 제외. 근거: [adr/0002](adr/0002-claude-cli-first.md), ROADMAP 2026-06-02 범위결정.
+- 멀티프로바이더(GPT/Gemini) 교차변별은 1차 범위 제외. 근거: [adr/0002](adr/0002-claude-cli-first.md).
 
 ## 8. 재현성
 - 버전핀·공개셋 34 릴리스·실행기(`scripts/run_eval.py`)·리더보드 정책. 근거: [m4-public-sample-scope.md](m4-public-sample-scope.md), [adr/0009](adr/0009-leaderboard-submission-policy.md).

@@ -56,7 +56,10 @@ export default function Page() {
         <p>
           한국 회계·세무 AI 실무 신뢰도 평가 · 읽기전용 v1 · 순위는 비공개
           holdout 기준, 공개셋 점수는 별도 표기 (
-          <a href="https://github.com/" rel="noreferrer">
+          <a
+            href="https://github.com/lumatic2/korean-tax-accounting-ax-benchmark/blob/main/docs/adr/0009-leaderboard-submission-policy.md"
+            rel="noreferrer"
+          >
             ADR 0009
           </a>
           )
@@ -94,7 +97,7 @@ export default function Page() {
           순위 = holdout 평균(과적합 방지). 공개셋 평균은 별도 컬럼 — 두 값의
           격차가 공개셋 과적합 신호. 각 모델은 버전핀으로 동결(append-only).
         </p>
-        <div className="table-wrap" role="region" aria-label="모델 랭킹 표">
+        <div className="table-wrap" role="region" aria-label="모델 랭킹 표" tabIndex={0}>
           <table>
             <thead>
               <tr>
@@ -145,7 +148,7 @@ export default function Page() {
       <section className="heat">
         <h2>차원별 평균 (holdout)</h2>
         <p className="note">7차원 루브릭 — 어느 축이 약한지(환각·계산·근거).</p>
-        <div className="table-wrap" role="region" aria-label="차원별 평균 표">
+        <div className="table-wrap" role="region" aria-label="차원별 평균 표" tabIndex={0}>
           <table>
             <thead>
               <tr>
@@ -179,7 +182,7 @@ export default function Page() {
 
       <section className="heat">
         <h2>분야별 평균 (holdout)</h2>
-        <div className="table-wrap" role="region" aria-label="분야별 평균 표">
+        <div className="table-wrap" role="region" aria-label="분야별 평균 표" tabIndex={0}>
           <table>
             <thead>
               <tr>
