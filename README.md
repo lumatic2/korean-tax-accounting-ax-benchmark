@@ -84,6 +84,22 @@ uv run pytest
 uv run python scripts/run_eval.py --models claude-haiku-4-5 --modes closed_book --limit 5
 ```
 
+## 내 모델 테스트와 제출
+
+외부 사용자는 공개 샘플로 본인 LLM/RAG/agent를 로컬에서 self-test할 수 있습니다. 공식 leaderboard 순위는 공개 샘플이 아니라 maintainer가 private holdout으로 재현 채점한 결과만 사용합니다.
+
+```bash
+uv run python scripts/run_eval.py \
+  --models your-model-name \
+  --modes closed_book,rag \
+  --data data/sample-questions-v0.1.jsonl \
+  --out outputs/results
+
+uv run python scripts/make_report.py outputs/results/*.jsonl --out outputs/report.md
+```
+
+모델 연결 방식, provider 설정, 제출 metadata는 [docs/submission-guide.md](docs/submission-guide.md)에 정리했습니다.
+
 ## 공개 번들 재현
 
 ```bash
@@ -101,7 +117,7 @@ release gate는 `public_sample`이 아닌 문항이나 공개 허용 license가 
 
 - 리더보드 순위는 private holdout 기준: [ADR 0009](docs/adr/0009-leaderboard-submission-policy.md)
 - agent 평가 격리: [ADR 0008](docs/adr/0008-agent-eval-isolation.md)
-- 법령/K-IFRS citation grader: [ADR 0007](docs/adr/0007-citation-grader.md)
+- 법령/K-IFRS citation grader: [ADR 0007](docs/adr/0007-citation-grader-kifrs-paragraph.md)
 - 공개 샘플 범위와 canary 전략: [docs/m4-public-sample-scope.md](docs/m4-public-sample-scope.md)
 
 ## Public/Private Boundary
@@ -157,9 +173,25 @@ uv run pytest
 uv run python scripts/run_eval.py --models claude-haiku-4-5 --modes closed_book --limit 5
 ```
 
+## Test Your Own Model
+
+External users can run local self-tests on the public sample. Official leaderboard rankings are based only on maintainer-reproduced private holdout runs, not public sample scores.
+
+```bash
+uv run python scripts/run_eval.py \
+  --models your-model-name \
+  --modes closed_book,rag \
+  --data data/sample-questions-v0.1.jsonl \
+  --out outputs/results
+
+uv run python scripts/make_report.py outputs/results/*.jsonl --out outputs/report.md
+```
+
+See [docs/submission-guide.md](docs/submission-guide.md) for provider setup, custom model adapters, result files, and required submission metadata.
+
 ## Key Design Decisions
 
 - Ranking uses private holdout aggregates only: [ADR 0009](docs/adr/0009-leaderboard-submission-policy.md)
 - Agent evaluation is isolated from repository-local prompts and MCP state: [ADR 0008](docs/adr/0008-agent-eval-isolation.md)
-- Citation grading supports both legal articles and K-IFRS standard-paragraph references: [ADR 0007](docs/adr/0007-citation-grader.md)
+- Citation grading supports both legal articles and K-IFRS standard-paragraph references: [ADR 0007](docs/adr/0007-citation-grader-kifrs-paragraph.md)
 - Public sample scope and canary strategy are documented in [docs/m4-public-sample-scope.md](docs/m4-public-sample-scope.md)
