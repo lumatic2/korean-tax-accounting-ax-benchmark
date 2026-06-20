@@ -12,7 +12,7 @@
 
 AI systems are increasingly deployed in tax and accounting work, yet there is no reproducible standard for measuring whether such a system *can actually perform Korean tax law and accounting standards*. General LLM benchmarks and professional-exam accuracy measure whether a model "sounds plausible," not whether it "passes professional verification." A single accuracy number cannot separate the cases where the conclusion is right but the cited basis is wrong; the calculation is right but the practical advice is dangerous; the statute is found but misapplied to the facts; the amended law is not reflected; or an uncertain matter is asserted as settled.
 
-K-TaxBench is an evaluation infrastructure that decomposes these five failure modes and measures them separately. It decomposes Korean tax and accounting practice into 6 domains × 7 task types, comprising 101 items, and scores them with a multi-dimensional rubric of **accuracy, grounding, practicality, risk-awareness, and tool-use**. Scoring combines deterministic code-based grading (multiple choice, calculation, and citation-locator matching) with an LLM-judge (a 7-dimension rubric). To prevent a model from grading its own answers, the judge is fixed to a model outside the candidate pool, and the candidate and judge execution environments are isolated.
+K-TaxBench is an evaluation infrastructure that decomposes these five failure modes and measures them separately. It decomposes Korean tax and accounting practice into 6 domains × 7 task types (currently 302 items; the results in this report were measured on the initial v0.1 101-item set), and scores them with a multi-dimensional rubric of **accuracy, grounding, practicality, risk-awareness, and tool-use**. Scoring combines deterministic code-based grading (multiple choice, calculation, and citation-locator matching) with an LLM-judge (a 7-dimension rubric). To prevent a model from grading its own answers, the judge is fixed to a model outside the candidate pool, and the candidate and judge execution environments are isolated.
 
 Key results: (1) Across three models (claude-opus-4-8 / sonnet-4-6 / haiku-4-5), a **discrimination spread of 40.2 points** was observed (over 118 commonly-solved pairs). (2) A RAG mode that injects primary statutory text raised the mean by **+8.6 points** over closed-book, and much of that gain came from a reduction in fabricated sources (hallucinations) — in citation-type items, `fake_source` flags fell from 14 to 4 (−71%). (3) Tool-use can only be measured reliably under "enforcement + grounding matching": weaker models did not call tools even under a forced gate and instead fabricated citations, and only code-level grounding comparison caught this.
 
@@ -73,7 +73,7 @@ Three of these are the **load-bearing trio** that we always check first in any d
 
 ### 2.1 Item Distribution
 
-The current v0.1 item set contains 101 items.
+At the time of this report, the v0.1 item set contained 101 items (the benchmark has since expanded to 302 items across 6 domains — see README.md).
 
 **By domain** — VAT 22 · corporate tax 22 · income tax 19 · accounting 16 · basic tax law 12 · mixed 10.
 
