@@ -18,7 +18,7 @@ Accepted (2026-06-10)
 
 ## Decision
 **(C).** `ClaudeCLIClient(isolated=True)` 기본 격리:
-- **cwd** = 레포·home 트리 밖 빈 sandbox(`C:/ktaxbench-sandbox`, env `KTAXBENCH_SANDBOX` override). home 밖이라 전역 `C:\Users\yusun\CLAUDE.md` 발견까지 차단.
+- **cwd** = 레포·home 트리 밖 빈 sandbox(`C:/ktaxbench-sandbox`, env `KTAXBENCH_SANDBOX` override). home 밖이라 전역 지시 파일 발견까지 차단.
 - **`--strict-mcp-config`** (no `--mcp-config`) → law-mcp 등 0개. 구독 인증(OAuth) 유지.
 - **`--append-system-prompt` 유지** — eval 시스템 프롬프트는 그대로 주입(full-replace 안 함, surgical).
 - **전 모드 + judge 일괄** — closed_book 후보가 레포 CLAUDE.md 를 읽는 것도 오염. registry 가 `ClaudeCLIClient` 를 기본 생성하므로 별도 배선 없이 후보·judge 전부 적용.

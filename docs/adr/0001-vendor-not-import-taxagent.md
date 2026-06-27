@@ -4,7 +4,7 @@
 Accepted (2026-06-02)
 
 ## Context
-평가 실행기는 형제 레포 `~/projects/tax-agent`의 검증된 자산을 재사용한다:
+평가 실행기는 별도 tax-agent 레포의 검증된 자산을 재사용한다:
 LLM 어댑터(`agent/llm/adapter.py`의 `ClaudeCLIChat`), 법제처 DRF 클라이언트(`agent/law_client.py`),
 채점 패턴(`evals/`, `exam/mcq_eval.py`).
 

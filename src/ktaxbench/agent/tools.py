@@ -15,8 +15,8 @@ import os
 import re
 from dataclasses import dataclass
 
-# kifrs DB 경로 — env override 가능(타 머신·CI). 기본값은 로컬 경로.
-_KIFRS_DB_DEFAULT = r"C:\Users\yusun\projects\kifrs-rag\data\kifrs.db"
+# kifrs DB 경로 — env 로 지정(타 머신·CI).
+_KIFRS_DB_ENV = "KIFRS_DB_PATH"
 
 # 도구 메뉴 — prompts.py 가 import (단일 출처)
 TOOL_MENU = (
@@ -126,9 +126,12 @@ def _exec_기준서문단(arg: str, *, accessed_at: str) -> str:
     if not m:
         return f"인자 형식 오류(기준서 문단 필요): {arg!r}"
     standard, no = m.group(1), m.group(2)
-    db = Path(os.getenv("KIFRS_DB_PATH", _KIFRS_DB_DEFAULT))
+    db_path = os.getenv(_KIFRS_DB_ENV)
+    if not db_path:
+        return f"kifrs DB 경로 미지정: {_KIFRS_DB_ENV} 환경변수로 SQLite 경로를 지정하세요"
+    db = Path(db_path)
     if not db.exists():
-        return f"kifrs DB 없음: {db} (KIFRS_DB_PATH 로 지정 가능)"
+        return f"kifrs DB 없음: {db} ({_KIFRS_DB_ENV} 로 지정 가능)"
     try:
         con = sqlite3.connect(str(db))
         row = con.execute(

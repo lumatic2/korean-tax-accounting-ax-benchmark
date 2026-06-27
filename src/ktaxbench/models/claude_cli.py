@@ -18,7 +18,7 @@ from pathlib import Path
 
 from .base import Response
 
-# home 트리 밖(전역 C:\Users\yusun\CLAUDE.md 발견까지 차단). env 로 override 가능.
+# home 트리 밖(전역/레포 지시 파일 발견까지 차단). env 로 override 가능.
 _SANDBOX = Path(os.environ.get("KTAXBENCH_SANDBOX", "C:/ktaxbench-sandbox"))
 
 # 서버측 일시적 동시성 제한(구독 쿼터 아님) — claude CLI 가 rc!=0 + 이 마커를 stdout/stderr 로 낸다.
