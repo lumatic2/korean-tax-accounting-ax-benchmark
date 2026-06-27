@@ -5,6 +5,7 @@
 K-TaxBench는 한국 세법·회계기준 기반 문항, 근거 인용 검증, 계산 채점, LLM-judge 루브릭, agent 도구 사용 검증, 공개 리더보드 정책을 하나의 평가 파이프라인으로 묶었습니다.
 
 **Live:** [tax-benchmark.askewly.com](https://tax-benchmark.askewly.com)  
+**Leaderboard source:** [lumatic2/ktaxbench-leaderboard](https://github.com/lumatic2/ktaxbench-leaderboard)  
 **Public sample:** [data/sample-questions-v0.1.jsonl](data/sample-questions-v0.1.jsonl)  
 **Technical report:** [docs/m4-tech-report-en.md](docs/m4-tech-report-en.md)  
 **English:** [jump to English README](#english)
@@ -164,6 +165,7 @@ K-TaxBench is a Korean accounting and tax benchmark for evaluating whether an AI
 It combines domain-specific question design, statute/K-IFRS grounding, deterministic citation and calculation checks, LLM-judge rubrics, tool-grounded agent evaluation, and a public leaderboard policy that separates practice data from the private ranking holdout.
 
 **Live:** [tax-benchmark.askewly.com](https://tax-benchmark.askewly.com)  
+**Leaderboard source:** [lumatic2/ktaxbench-leaderboard](https://github.com/lumatic2/ktaxbench-leaderboard)  
 **Public sample:** [data/sample-questions-v0.1.jsonl](data/sample-questions-v0.1.jsonl)  
 **Technical report:** [docs/m4-tech-report-en.md](docs/m4-tech-report-en.md)
 
