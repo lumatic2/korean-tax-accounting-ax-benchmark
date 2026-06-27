@@ -1,0 +1,200 @@
+{
+  "errors_holdout_agg": {
+    "by_type": {
+      "citation_error": 1,
+      "hallucination": 18
+    }
+  },
+  "errors_public": [
+    {
+      "detail": "unverified_citation:제38조, unverified_citation:제38조",
+      "id": "ktb-vat-0011",
+      "mode": "authority_rag",
+      "model": "gpt-5.5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제19조의2, unverified_citation:제19조의2",
+      "id": "ktb-corp-tax-0008",
+      "mode": "authority_rag",
+      "model": "gpt-5.5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제119조, unverified_citation:제119조",
+      "id": "ktb-income-tax-0007",
+      "mode": "authority_rag",
+      "model": "gpt-5.5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제119조, unverified_citation:제119조",
+      "id": "ktb-income-tax-0009",
+      "mode": "authority_rag",
+      "model": "gpt-5.5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "unverified_citation:제116조, unverified_citation:제39조, unverified_citation:제75조의5, unverified_citation:제116조, unverified_citation:제39조, unverified_citation:제75조의5",
+      "id": "ktb-mixed-0008",
+      "mode": "authority_rag",
+      "model": "gpt-5.5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-mixed-0008",
+      "mode": "authority_rag",
+      "model": "gpt-5.5",
+      "type": "citation_error"
+    },
+    {
+      "detail": "unverified_citation:제21조, unverified_citation:제22조, unverified_citation:제39조, unverified_citation:제40조, unverified_citation:제21조, unverified_citation:제22조, unverified_citation:제39조, unverified_citation:제40조",
+      "id": "ktb-mixed-0025",
+      "mode": "authority_rag",
+      "model": "gpt-5.5",
+      "type": "hallucination"
+    },
+    {
+      "detail": "근거 조문 불일치(0점)",
+      "id": "ktb-mixed-0025",
+      "mode": "authority_rag",
+      "model": "gpt-5.5",
+      "type": "citation_error"
+    }
+  ],
+  "meta": {
+    "models": [
+      "gpt-5.5"
+    ],
+    "n_holdout_records": 253,
+    "n_public_records": 49,
+    "source_files": [
+      "gpt-5.5_authority-rag_codex-judge-merged-302.jsonl"
+    ]
+  },
+  "public_sample": {
+    "discrimination": {
+      "flag": "saturation",
+      "range": [
+        95.26,
+        95.26
+      ],
+      "spread": 0.0
+    },
+    "report": {
+      "by_model": {
+        "gpt-5.5": {
+          "avg_total": 95.26,
+          "by_dimension": {
+            "calculation_or_process": 27.23,
+            "clarity": 5.02,
+            "conclusion_accuracy": 22.13,
+            "deliverable_quality": 15.0,
+            "fact_handling": 11.27,
+            "legal_basis": 20.83,
+            "practicality": 14.43,
+            "risk_handling": 13.34,
+            "tool_process": 19.0
+          },
+          "by_domain": {
+            "accounting": 97.44,
+            "basic_tax_law": 99.67,
+            "corp_tax": 98.86,
+            "income_tax": 94.31,
+            "mixed": 79.4,
+            "vat": 97.89
+          },
+          "by_mode": {
+            "authority_rag": 95.26
+          },
+          "grades": {
+            "A": 43,
+            "B": 4,
+            "C": 1,
+            "D": 1
+          },
+          "n": 49
+        }
+      },
+      "models": [
+        "gpt-5.5"
+      ],
+      "n_errors": 0,
+      "n_records": 49
+    }
+  },
+  "ranking": {
+    "basis": "holdout",
+    "discrimination": {
+      "flag": "saturation",
+      "range": [
+        94.07,
+        94.07
+      ],
+      "spread": 0.0
+    },
+    "report": {
+      "by_model": {
+        "gpt-5.5": {
+          "avg_total": 94.07,
+          "by_dimension": {
+            "calculation_or_process": 22.35,
+            "clarity": 4.9,
+            "conclusion_accuracy": 20.87,
+            "deliverable_quality": 13.94,
+            "fact_handling": 11.16,
+            "legal_basis": 22.11,
+            "practicality": 14.53,
+            "risk_handling": 12.52,
+            "tool_process": 13.37
+          },
+          "by_domain": {
+            "accounting": 96.32,
+            "basic_tax_law": 98.0,
+            "corp_tax": 93.94,
+            "income_tax": 92.83,
+            "mixed": 85.64,
+            "vat": 95.07
+          },
+          "by_mode": {
+            "authority_rag": 94.07
+          },
+          "grades": {
+            "A": 206,
+            "B": 31,
+            "C": 9,
+            "D": 7
+          },
+          "n": 253
+        }
+      },
+      "models": [
+        "gpt-5.5"
+      ],
+      "n_errors": 0,
+      "n_records": 253
+    }
+  },
+  "schema_version": "leaderboard-public-v0.1",
+  "version_pins": {
+    "gpt-5.5": {
+      "accessed_at": [
+        "2026-06-26"
+      ],
+      "judge_model": [
+        "claude-opus-4-8",
+        "codex-clean-judge:gpt-5.4"
+      ],
+      "measurement_label": [
+        "302-question authority_rag refresh"
+      ],
+      "modes": [
+        "authority_rag"
+      ],
+      "prompt_version": [
+        "v1"
+      ]
+    }
+  }
+}

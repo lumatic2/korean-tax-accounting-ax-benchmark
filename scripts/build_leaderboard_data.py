@@ -17,6 +17,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from ktaxbench.runlog import load_results  # noqa: E402
 from ktaxbench.report import build_public_payload  # noqa: E402
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
 
 def _arg(args, name, default=None):
     return args[args.index(name) + 1] if name in args else default
@@ -26,8 +28,9 @@ def main() -> int:
     args = sys.argv[1:]
     data = _arg(args, "--data", "data/sample-questions-v0.1.jsonl")
     out = _arg(args, "--out", "outputs/leaderboard-public.json")
+    pins_path = _arg(args, "--pins", str(REPO_ROOT / "config" / "leaderboard-pins.json"))
     inputs = [a for a in args if not a.startswith("--")
-              and args[args.index(a) - 1] not in ("--data", "--out")]
+              and args[args.index(a) - 1] not in ("--data", "--out", "--pins")]
 
     files: list[str] = []
     for p in inputs:
@@ -47,8 +50,16 @@ def main() -> int:
             q = json.loads(line)
             vis_map[q["id"]] = q.get("visibility", "unknown")
 
-    payload = build_public_payload(records, vis_map,
-                                   meta={"source_files": sorted(Path(f).name for f in files)})
+    pin_overrides = {}
+    if pins_path and Path(pins_path).exists():
+        pin_overrides = json.loads(Path(pins_path).read_text(encoding="utf-8"))
+
+    payload = build_public_payload(
+        records,
+        vis_map,
+        meta={"source_files": sorted(Path(f).name for f in files)},
+        pin_overrides=pin_overrides,
+    )
 
     # ── 누수 가드 (커밋·배포 전 필수) ──
     blob = json.dumps(payload, ensure_ascii=False)

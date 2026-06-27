@@ -1,0 +1,8 @@
+{
+  "gpt-5.5": {
+    "accessed_at": ["2026-06-26"],
+    "measurement_label": ["302-question authority_rag refresh"],
+    "judge_model": ["codex-clean-judge:gpt-5.4"],
+    "modes": ["authority_rag"]
+  }
+}

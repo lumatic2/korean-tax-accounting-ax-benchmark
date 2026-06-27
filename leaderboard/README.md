@@ -8,8 +8,11 @@
 ## 데이터 흐름
 ```
 outputs/*.jsonl → scripts/build_leaderboard_data.py (누수 가드) → data/leaderboard-public.json → 정적 빌드
+authority_rag merged result → data/authority-rag-public.json → Authority RAG 별도 뷰
 ```
-`data/leaderboard-public.json`은 **공개 안전**(holdout 문항 id·본문·answer_text 비노출, 순위는 holdout 집계·공개셋 별도). 그래서 이 레포에 커밋해도 안전하다.
+`data/leaderboard-public.json`과 `data/authority-rag-public.json`은 **공개 안전**(holdout 문항 id·본문·answer_text 비노출, 순위는 holdout 집계·공개셋 별도). 그래서 이 레포에 커밋해도 안전하다.
+
+Authority RAG는 리더보드에 공개된 별도 view다. 다만 `authority_rag-v1`은 benchmark-provided frozen source pack을 쓰는 별도 평가 조건이므로 `closed_book` 공식 순위 평균에 합산하지 않는다.
 
 ## 개발
 ```bash
@@ -29,7 +32,7 @@ npm run data
 # 3) out/ 를 공개 레포에 푸시
 cd out && git add -A && git commit -m "deploy: <갱신내용>" && git push
 ```
-> 공개 레포엔 `out/`(빌드 산출물)만. 본 private 레포의 source(`leaderboard/`)·CLAUDE.md·ROADMAP·내부 데이터는 push 금지(repo-layout 표준). `out/`은 private 레포에서 gitignored.
+> 공개 배포 레포(`ktaxbench-leaderboard`)엔 `out/`(빌드 산출물)만. 공개 source repo(`korean-tax-accounting-ax-benchmark`)에는 공개 안전한 source·문서·리더보드 JSON만 반영한다. private 레포의 CLAUDE.md·ROADMAP·내부 데이터는 push 금지(repo-layout 표준). `out/`은 private 레포에서 gitignored.
 
 ## 정책
 순위·제출·철회 규칙은 [ADR 0009](../docs/adr/0009-leaderboard-submission-policy.md). holdout 보호는 [m4-public-sample-scope](../docs/m4-public-sample-scope.md).
