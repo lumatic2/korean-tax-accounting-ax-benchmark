@@ -12,9 +12,13 @@ __pycache__/
 
 # 임시 (repo-layout 관례)
 tmp/
-archive/
+archive/*
 dist/
 
 # Playwright/스크린샷 산출물
 .playwright-mcp/
 /leaderboard-qhd-*.png
+
+# 완료 노트는 폐기물이 아니라 milestone 완료의 정본 증거다 (하네스 배치 규약).
+# archive/ 를 폐기물 창고로 쓰더라도 이 경로는 추적한다.
+!archive/reports/
